@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 from boto.ec2.connection import EC2Connection
+from config import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 
 
 conn = EC2Connection(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
