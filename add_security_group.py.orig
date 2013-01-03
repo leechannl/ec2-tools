@@ -15,13 +15,23 @@ security_groups = conn.get_all_security_groups()
 
 ip = sys.argv[1]
 
+<<<<<<< HEAD
+if __name__ == '__main__':
+    print ip
+=======
 
 def add_ssh(ip, security_groups):
     """Allow ssh access to all the security group from this ip."""
+>>>>>>> bcd67c04b4462118521eeb2ed8a18acc6bd4c64e
     for sg in security_groups:
         try:
             sg.authorize(ip_protocol='tcp', from_port=22, to_port=22,
                 cidr_ip=ip)
+<<<<<<< HEAD
+            print "Add rule to %s " % sg.name
+        except EC2ResponseError as e:
+            print 'Rules already exist.'
+=======
             print "Allow ssh from %s " % ip
         except EC2ResponseError as e:
             print 'Rules already exist.'
@@ -84,3 +94,4 @@ if __name__ == '__main__':
     add_chef(ip, security_groups)
     add_zabbix(ip, security_groups)
     add_hadoop(ip, security_groups)
+>>>>>>> bcd67c04b4462118521eeb2ed8a18acc6bd4c64e

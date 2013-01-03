@@ -18,6 +18,8 @@ dict_keys = ['id', 'name', 'group', 'ip',
             'private_ip', 'flavor', 'image', 'ssh_key' 'status']
 
 list_info = [[x.id, x.tags['Name'], x.groups[0].name,
+<<<<<<< HEAD:list_instance.py
+=======
                                    x.ip_address,
                                    x.private_ip_address,
                                    x.instance_type,
@@ -25,6 +27,7 @@ list_info = [[x.id, x.tags['Name'], x.groups[0].name,
                                    x.key_name,
                                    x.state] if x.tags.has_key('Name') else
                                    [x.id, 'empty', x.groups[0].name,
+>>>>>>> bcd67c04b4462118521eeb2ed8a18acc6bd4c64e:list_instance.py
                                    x.ip_address,
                                    x.private_ip_address,
                                    x.instance_type,
@@ -51,6 +54,7 @@ dict_info = [dict(zip(dict_keys, [x.id,
                                    x.key_name,
                                    x.state]))
                                   for x in instances]
+
 
 
 # transform a list to a 'table' structure
