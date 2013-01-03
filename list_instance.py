@@ -17,7 +17,7 @@ instances = [res.instances[0] for res in reservations]
 dict_keys = ['id', 'name', 'group', 'ip',
             'private_ip', 'flavor', 'image', 'ssh_key' 'status']
 
-list_info = [[x.id,x.tags['Name'], x.groups[0].name,
+list_info = [[x.id, x.tags['Name'], x.groups[0].name,
                                    x.ip_address,
                                    x.private_ip_address,
                                    x.instance_type,
@@ -34,6 +34,7 @@ dict_info = [dict(zip(dict_keys, [x.id,
                                   x.image_id,
                                   x.key_name,
                                   x.state])) for x in instances]
+
 
 # transform a list to a 'table' structure
 def format_as_table(data,
@@ -70,7 +71,7 @@ def format_as_table(data,
 
     column_widths = []
     for key in keys:
-        column_widths.append(max(len(str(column[key])) for column in 
+        column_widths.append(max(len(str(column[key])) for column in
             data))
 
     key_width_pair = zip(keys, column_widths)
@@ -83,16 +84,9 @@ def format_as_table(data,
             data_to_format.append(pair[1])
             data_to_format.append(element[pair[0]])
         formatted_data += format % tuple(data_to_format)
-    
+
     return formatted_data
 
-"""
-    table = []
-    table.append(dict_keys)
-    for x in l:
-        table.append(x)
-    return table
-"""
 
 # pretty print the list in a colored table
 def pprint_table(out, table):
@@ -104,4 +98,5 @@ def pprint_table(out, table):
     pass
 
 if __name__ == "__main__":
-    rint format_as_table(dict_info, dict_keys,header=dict_keys,sort_by_key='group')
+    print format_as_table(dict_info, dict_keys, header=dict_keys,
+            sort_by_key='group')
